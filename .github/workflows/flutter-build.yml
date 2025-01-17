@@ -878,6 +878,7 @@ jobs:
     needs: [generate-bridge]
     name: build rustdesk android apk ${{ matrix.job.target }}
     runs-on: ${{ matrix.job.os }}
+    if: false # Desactivado temporalmente para reducir consumo de créditos en GitHub Actions
     strategy:
       fail-fast: false
       matrix:
@@ -1173,7 +1174,8 @@ jobs:
   build-rustdesk-android-universal:
     needs: [build-rustdesk-android]
     name: build rustdesk android universal apk
-    if: ${{ inputs.upload-artifact }}
+    #if: ${{ inputs.upload-artifact }}
+    if: false # Desactivado temporalmente para reducir consumo de créditos en GitHub Actions
     runs-on: ubuntu-20.04
     env:
       reltype: release
